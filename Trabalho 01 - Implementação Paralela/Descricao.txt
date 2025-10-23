@@ -1,0 +1,16 @@
+Explicação sobre a aplicação:
+O algoritmo escolhido foi o de árvore de decisão (https://github.com/bowbowbow/DecisionTree), e a base foi de voos comerciais nos Estados Unidos em 2023 que foram cancelados ou desviados (104 mil instâncias). Assim, conseguimos por meio do algoritmo prever se um voo será cancelado ou desviado.
+
+Como rodar:
+Sequencial: 
+	1) g++ -std=c++11 -o dt decision_tree.cpp
+	2) ./dt CANCELLED_DIVERTED_2023.csv Cancelled
+
+OpenMP:
+	1)  g++ -std=c++11 -fopenmp -o dt decision_tree_omp.cpp
+	2) ./dt CANCELLED_DIVERTED_2023.csv Cancelled
+
+OpenMP + MPI:
+	1) mpic++ -fopenmp decision_tree_MPI.cpp -o dt_parallel -O3
+	2) export OMP_NUM_THREADS=X (sendo X o número de threads)
+	3) mpirun -np Y /dt_parallel CANCELLED_DIVERTED_2023.csv Cancelled (sendo Y o número de processos)

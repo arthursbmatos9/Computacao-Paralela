@@ -1,12 +1,18 @@
 /*
- * VERSÃO HÍBRIDA (OpenMP + MPI) - ÁRVORE DE DECISÃO
- * 
- * MODIFICAÇÕES PARA PARALELIZAÇÃO:
- * 1. Adicionado suporte a MPI para distribuição de dados entre processos
- * 2. Paralelização OpenMP no cálculo de ganho de informação (getSelectedAttribute)
- * 3. Paralelização OpenMP na fase de teste/predição do modelo
- * 4. Paralelização OpenMP no parsing de linhas CSV
- * 5. Balanceamento de carga entre processos MPI
+VERSÃO HÍBRIDA (OpenMP + MPI) - ÁRVORE DE DECISÃO
+ 
+Tempos de execução:
+	-Sequencial:              			    73794 ms        -> 73.79s
+	-Paralela para 4 threads e 1 processo:  45145 ms        -> 45.14s
+	-Paralela para 2 threads e 2 processos: 33175 ms        -> 33.17s
+	-Paralela para 0 threads e 4 processo:  20835 ms		-> 20.83s
+
+MODIFICAÇÕES PARA PARALELIZAÇÃO:
+  	1. Adicionado suporte a MPI para distribuição de dados entre processos
+  	2. Paralelização OpenMP no cálculo de ganho de informação (getSelectedAttribute)
+  	3. Paralelização OpenMP na fase de teste/predição do modelo
+  	4. Paralelização OpenMP no parsing de linhas CSV
+ 	5. Balanceamento de carga entre processos MPI
  */
 
 #include <iostream>
